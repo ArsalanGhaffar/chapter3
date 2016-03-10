@@ -43,6 +43,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="done"/>
                                 <connections>
                                     <action selector="conversion:" destination="BYZ-38-t0r" eventType="editingChanged" id="DPP-1A-Wg2"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8wj-jC-Um0"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hp4-0v-JeP">

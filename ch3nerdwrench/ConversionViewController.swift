@@ -11,8 +11,7 @@ import Foundation
 
 import UIKit
 
-class ConversionViewController : UIViewController {
-    
+class ConversionViewController : UIViewController, UITextFieldDelegate{
     
     
     var farenheit: Double?{
@@ -37,6 +36,7 @@ class ConversionViewController : UIViewController {
     }
     
     
+    
     @IBOutlet weak var farenheitLabel: UITextField!
     
     @IBOutlet weak var convertedlabelcelsius: UILabel!
@@ -51,11 +51,11 @@ class ConversionViewController : UIViewController {
     @IBAction func conversion(sender: UITextField) {
         
         if  let text = farenheitLabel.text , value = Double(text)  {
-                farenheit = value
+            farenheit = value
             
             
             
-             }
+        }
         else{
             
             convertedlabelcelsius.text = "???"
@@ -91,26 +91,78 @@ class ConversionViewController : UIViewController {
         nf.minimumFractionDigits = 0
         nf.maximumFractionDigits = 2
         return nf
-    
-    
+        
+        
     }()
     
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
+        
+        
+        
+        if (range.length == 1 && string.isEmpty){
+            print("Used Backspace")
+            return true
+        }
+        
+        
+        let disabledCharacters:NSCharacterSet = NSCharacterSet(charactersInString: "1234567890.,")
+        let disstring = String(disabledCharacters)
+        let x = disstring.characters.count
+        for (var i:Int = 0; i < x; ++i) {
+            let c = (string as NSString).characterAtIndex(i)
+            if !(disabledCharacters.characterIsMember(c))  {
+                print("Can't use that character dude :/")
+                return false
+            }else{
+            
+            let existinghtext = farenheitLabel.text?.rangeOfString(".")
+            let replacementtext = string.rangeOfString(".")
+                let comma1 = farenheitLabel.text?.rangeOfString(",")
+                let comma2 = string.rangeOfString(",")
+            //        print("current text : \(existinghtext)")
+            //        print("replacement text : \(replacementtext)")
+            
+            
+            if (existinghtext != nil && replacementtext != nil) {
+                
+                
+                return false
+                
+                
+            }
+            else if (comma1 != nil && comma2 != nil){
+                
+                return false
+            
+            }else if(existinghtext != nil && comma2 != nil){
+            return false
+                
+            
+            }else{
+                return true
+                }
+       
+        
+                
+        
+        }
+       
+        
+        
+    }
+    return true
 }
+
+    
+    
+    
+    
+    
+    }
+
+    
