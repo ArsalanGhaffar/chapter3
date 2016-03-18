@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UMC-dX-akg">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Conversion View Controller-->
+        <!--Conversion-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="ch3nerdwrench" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="is really" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOg-Qd-n1Z">
                                 <rect key="frame" x="250" y="245" width="100" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.86948637470000001" blue="0.16660428099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jiP-7T-h4h" userLabel="Farenheit Label">
@@ -90,6 +90,7 @@
                             <outletCollection property="gestureRecognizers" destination="tNA-zt-QwJ" appends="YES" id="7AM-jy-6Fa"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Conversion" image="ConvertIcon" id="e9n-qP-xBX"/>
                     <connections>
                         <outlet property="convertedlabelcelsius" destination="Hp4-0v-JeP" id="rfh-ge-XuM"/>
                         <outlet property="farenheitLabel" destination="jiP-7T-h4h" id="FVg-iu-Rlf"/>
@@ -102,7 +103,39 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1069" y="275"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="CDx-74-7Ju">
+            <objects>
+                <viewController id="9FJ-hH-QQv" customClass="MapController" customModule="ch3nerdwrench" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="HPg-eh-dC6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a49-ZT-YWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="306"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="lyr-cj-B1G">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="UMC-dX-akg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="aGB-ai-of2">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9FJ-hH-QQv" kind="relationship" relationship="viewControllers" id="kOT-B7-e2Q"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gHn-m9-ntp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8MM-DY-ZfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="287" y="306"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ConvertIcon" width="49" height="33"/>
+        <image name="MapIcon" width="49" height="33"/>
+    </resources>
 </document>
